@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://br03v7jrogamm"]
+
+[ext_resource type="PackedScene" uid="uid://viag56vg6ya5" path="res://entities/player.tscn" id="1_bsh60"]
+[ext_resource type="PackedScene" uid="uid://5sdk3va84jwx" path="res://world/test_world.tscn" id="2_pfoq7"]
+
+[node name="Main" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_bsh60")]
+position = Vector2(45, 42)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="TileMap" parent="." instance=ExtResource("2_pfoq7")]
+position = Vector2(3, 0)
+layer_0/name = "Physics"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(45, 42)
